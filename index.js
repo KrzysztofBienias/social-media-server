@@ -10,6 +10,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import process from 'process';
 import authRoutes from './routes/auth.js';
+import userRoutes from './routes/users.js';
 import { register } from './controllers/auth.js';
 
 // config
@@ -44,6 +45,8 @@ app.post('/auth/register', upload.single('picture'), register);
 
 // routes
 app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
+
 // mongoose
 const PORT = process.env.PORT || 6001;
 mongoose
